@@ -27,10 +27,10 @@ export class OpenTelemetrySetupModule
   extends OpenTelemetryModule
   implements NestModule
 {
-  static async fromRoot(
+  static async forRoot(
     configuration: Partial<OpenTelemetryModuleConfig> = {},
   ): Promise<DynamicModule> {
-    const fromRoot = await super.forRoot({
+    const forRoot = await super.forRoot({
       ...configuration,
       traceAutoInjectors: this.traceAutoInjectors(),
       // @ts-ignore
@@ -40,7 +40,8 @@ export class OpenTelemetrySetupModule
     });
 
     return {
-      ...fromRoot,
+      ...forRoot,
+      module: OpenTelemetrySetupModule,
     };
   }
 
@@ -48,7 +49,7 @@ export class OpenTelemetrySetupModule
     consumer
       .apply((req, res, next) => {
         const spanContext = trace.getSpan(context.active())?.spanContext();
-        res.set('x-traceid', spanContext?.traceId);
+        res.set('x-traceid', spanContext?.traceId || 'unknown');
         next();
       })
       .forRoutes('*');

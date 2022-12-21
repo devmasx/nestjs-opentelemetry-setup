@@ -11,7 +11,7 @@ import { OpenTelemetrySetupModule } from 'nestjs-opentelemetry-setup';
 
 @Module({
   imports: [
-    OpenTelemetrySetupModule.fromRoot({
+    OpenTelemetrySetupModule.forRoot({
       serviceName: 'my-app',
     }),
   ],
