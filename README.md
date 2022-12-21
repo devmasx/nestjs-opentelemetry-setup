@@ -65,6 +65,34 @@ export class AppService {
 }
 ```
 
+### Jaeger UI
+
+```yml
+version: '3.7'
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:1.40
+    environment:
+      COLLECTOR_ZIPKIN_HOST_PORT: ':9411'
+      COLLECTOR_OTLP_ENABLED: "false"
+    ports:
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+      - "14250:14250"
+      - "14268:14268"
+      - "14269:14269"
+      - "9411:9411"
+```
+
+```
+docker compose up
+```
+Open UI: http://localhost:16686/search
+
 ### Extends
 
 This module is equivalent to:
