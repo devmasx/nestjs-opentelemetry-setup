@@ -1,0 +1,19 @@
+{
+  "name": "nestjs-opentelemetry-setup",
+  "version": "2.0.0",
+  "description": "",
+  "author": "",
+  "private": false,
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "@metinseylan/nestjs-opentelemetry": "^3.0.0",
+    "@opentelemetry/exporter-jaeger": "^1.8.0",
+    "@opentelemetry/sdk-trace-base": "^1.8.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^9.2.1",
+    "typescript": "^4.9.4"
+  }
+}
