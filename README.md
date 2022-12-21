@@ -1,9 +1,8 @@
 # nestjs-opentelemetry-setup
 
-Configure opentelemetry traces by default with `JaegerExporter`
+Configure opentelemetry traces by default with `JaegerExporter`, this module is a extends from https://github.com/MetinSeylan/Nestjs-OpenTelemetry
 
-Extends module from https://github.com/MetinSeylan/Nestjs-OpenTelemetry
-
+[jaeger-trace.png](./images//jaeger-trace.png)
 ## Usage
 
 ```ts
@@ -26,7 +25,7 @@ export class AppModule {}
 
 All responses contains response header `x-traceid` with the trace id
 
-Usefull to search the trace in jeager:
+Usefull to search the trace in jaeger:
 
 http://localhost:16686/trace/${traceId}
 
