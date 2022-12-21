@@ -2,7 +2,7 @@
 
 Configure opentelemetry traces by default with `JaegerExporter`, this module is a extends from https://github.com/MetinSeylan/Nestjs-OpenTelemetry
 
-[jaeger-trace.png](./images//jaeger-trace.png)
+![jaeger-trace.png](./images//jaeger-trace.png)
 ## Usage
 
 ```ts
