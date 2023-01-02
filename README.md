@@ -65,6 +65,30 @@ export class AppService {
 }
 ```
 
+#### Custom configuration for Instrumentations
+
+Apply configuration for http instrumentation, adding user id tag based on request header.
+
+```ts
+import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
+
+OpenTelemetrySetupModule.forRoot({
+  serviceName: 'my-app',
+  instrumentations: [
+    getNodeAutoInstrumentations({
+      '@opentelemetry/instrumentation-http': {
+        applyCustomAttributesOnSpan: (span, request: any, response: any) => {
+          span.setAttribute('user_id', request.headers['x-user-id']);
+          span.setAttribute('language', request.headers['language']);
+        },
+      },
+    }),
+  ],
+}),
+```
+
+More information about other OpenTelemetry instrumentation configuration: https://www.npmjs.com/package/@opentelemetry/auto-instrumentations-node
+
 ### Jaeger UI
 
 ```yml
