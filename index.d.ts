@@ -1,4 +1,5 @@
 import { DynamicModule, MiddlewareConsumer, NestModule } from '@nestjs/common';
+import 'reflect-metadata';
 import { OpenTelemetryModule, OpenTelemetryModuleConfig } from '@metinseylan/nestjs-opentelemetry';
 export { Span, TraceService } from '@metinseylan/nestjs-opentelemetry';
 import { ExporterConfig } from '@opentelemetry/exporter-jaeger';
