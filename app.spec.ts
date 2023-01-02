@@ -21,7 +21,7 @@ describe('AppController (e2e)', () => {
         it(`GET ${endpoint}`, async () => {
           const response = await request(app.getHttpServer()).get(endpoint);
           expect(response.statusCode).toEqual(expectedStatus);
-          expect(response.body.jwtData).toEqual(expectedBody);
+          expect(response.body).toEqual(expectedBody);
         });
       },
     );

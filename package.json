@@ -5,8 +5,9 @@
   "author": "",
   "private": false,
   "scripts": {
-    "prepublish": "npx tsc",
-    "build": "npx tsc"
+    "test": "jest",
+    "prepublish": "npm run build",
+    "build": "npx tsc "
   },
   "dependencies": {
     "@metinseylan/nestjs-opentelemetry": "^3.0.0",
