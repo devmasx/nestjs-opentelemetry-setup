@@ -72,11 +72,12 @@ class ControllerInjectorWithError extends ControllerInjector {
 
   protected static recordException(error, span: Span) {
     span.recordException(error);
+    span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
     span.setAttributes({
+      track_error: true,
       error_type: error.constructor?.name || error.name,
       error_message: error.message,
     });
-    span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
     throw error;
   }
 }
